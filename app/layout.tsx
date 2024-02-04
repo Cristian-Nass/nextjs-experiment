@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Navbar from "./Navbar";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+
+const roboto = Roboto({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      {/* <body className={inter.className}> */}
+      <body className={`${roboto.className}`} style={{ fontSize: "20px" }}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
